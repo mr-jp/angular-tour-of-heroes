@@ -50,6 +50,13 @@ export class HeroService {
     );
   }
 
+  addHero(hero: Hero): Observable<Hero> {
+    return this.http.post<Hero>(this.heroesUrl, hero, httpOptions).pipe(
+      tap((hero: Hero) => this.log(`added hero w/ ${hero.id}`)),
+      catchError(this.handleError<Hero>('addhero'))
+    );
+  }
+
   /**
  * Handle Http operation that failed.
  * Let the app continue.
