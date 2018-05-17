@@ -6,10 +6,5 @@
 </ul>
 
 <div *ngIf='selectedHero'>
-  <h2>{{selectedHero.name | uppercase}}</h2>
-  <div><span>id: </span>{{selectedHero.id}}</div>
-  <div>
-    <label>name: </label>
-    <input [(ngModel)]="selectedHero.name" placeholder="name">
-  </div>
+  <app-hero-detail [hero]='selectedHero'></app-hero-detail>
 </div>
